@@ -17,13 +17,20 @@ def cart(request):
         customer = request.user.customer
         order,created = Order.objects.get_or_create(customer=customer,complete=False)
         item = order.orderitem_set.all()
-        context = {'items':item}
     else:
         item = []
-    return render(request,'cart.html',context)
+        order = {'get_cart_total':0,'get_cart_items':0}
+    return render(request,'cart.html',{'items':item ,'order':order})
 
 def checkout(request):
-    return render(request,'checkout.html')
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order,created = Order.objects.get_or_create(customer=customer,complete=False)
+        item = order.orderitem_set.all()
+    else:
+        item = []
+        order = {'get_cart_total':0,'get_cart_items':0}
+    return render(request,'checkout.html',{'items':item ,'order':order})
 
 def thanks(request):
     return render(request,'thanks.html')
