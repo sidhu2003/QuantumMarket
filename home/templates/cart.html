@@ -49,7 +49,7 @@
 								<div class="order_total_amount">{{order.get_cart_total}}</div>
 							</div>
 						</div>
-						<div class="cart_buttons"> <button type="button" class="button cart_button_clear">Continue Shopping</button> <button type="button" class="button cart_button_checkout">Add to Cart</button> </div>
+						<div class="cart_buttons"> <a type="button" class="button cart_button_clear" href="{% url 'index' %}">Continue Shopping</a> <a type="button" class="button cart_button_checkout" href="{% url 'checkout' %}">Add to Cart</a> </div>
 					</div>
 				</div>
 			</div>
