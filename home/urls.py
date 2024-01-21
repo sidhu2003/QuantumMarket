@@ -10,4 +10,5 @@ urlpatterns = [
     path('thanks',views.thanks,name='thanks'),
     path('register',views.register,name='register'),
     path('forgotpass',views.forgotpass,name='forgotpass'),
+    path('update_item/',views.updateItem,name='updateItem'),
 ]
